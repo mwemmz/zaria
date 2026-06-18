@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zarira Engineering Services — civil, electrical, mechanical, commissioning, consulting, procurement, logistics, and car hire in Lusaka, Zambia." />
+  <title>Services | Zarira Engineering Solutions</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200..700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  color-scheme: light;
+  --font-display: 'Rajdhani', 'Barlow Condensed', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --bg: #888888;
+  --surface: #ffffff;
+  --fg: oklch(12% 0 0);
+  --muted: oklch(44% 0 0);
+  --border: oklch(72% 0 0);
+  --copper: oklch(50% 0.10 35);
+  --copper-bright: oklch(58% 0.11 38);
+  --gold: oklch(80% 0.16 72);
+  --gold-bright: oklch(88% 0.14 72);
+  --success: oklch(55% 0.12 145);
+  --warning: oklch(65% 0.11 80);
+  --danger: oklch(50% 0.14 30);
+  --hero-max-width: 1400px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;
+}
+a { color: inherit; text-decoration: none; }
+
+.site-nav {
+  position: fixed; top: 0; left: 50%; z-index: 100;
+  display: grid; grid-template-columns: minmax(200px, 1fr) auto minmax(160px, 1fr);
+  align-items: center; gap: 28px;
+  width: min(100% - 48px, var(--hero-max-width));
+  margin: 0; padding: 22px 16px 14px;
+  color: var(--fg); transform: translate3d(-50%, 0, 0);
+  transition: background-color 300ms ease, backdrop-filter 300ms ease, padding 300ms ease, border-radius 300ms ease, border-color 300ms ease;
+  border: 1px solid transparent; border-radius: 0;
+}
+.site-nav.nav--solid {
+  transform: translate3d(-50%, 12px, 0);
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(14px);
+  border: 1px solid rgba(224, 160, 32, 0.15); border-radius: 12px;
+  padding: 12px 20px; box-shadow: 0 12px 30px -10px rgba(0,0,0,0.1);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; justify-self: start; }
+.brand__mark { width: 34px; height: 34px; background: var(--copper); border-radius: 4px; display: grid; place-items: center; font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #ffffff; line-height: 1; }
+.brand__name { font-family: var(--font-display); font-size: 21px; font-weight: 600; color: var(--fg); letter-spacing: 0.02em; }
+.brand__name small { font-family: var(--font-body); font-size: 10px; font-weight: 400; color: var(--fg); display: block; letter-spacing: 0.08em; text-transform: uppercase; margin-top: -1px; }
+.nav__links { display: flex; align-items: center; justify-content: center; gap: clamp(16px,2vw,32px); font-size: 13px; font-weight: 600; color: var(--fg); letter-spacing: 0.04em; text-transform: uppercase; }
+.nav__links a { transition: color 180ms ease; }
+.nav__links a:hover, .nav__links a[aria-current="page"] { color: var(--gold); }
+.nav__cta { justify-self: end; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border: 1px solid var(--gold); border-radius: 6px; background: transparent; color: var(--gold); font-family: var(--font-display); font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: background 180ms ease, color 180ms ease; }
+.nav__cta:hover { background: var(--gold); color: #ffffff; }
+
+.page-header {
+  padding: 140px 16px 60px;
+  background: radial-gradient(ellipse at 50% 30%, rgb(96 32 0 / 0.2), transparent 50%), var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.page-header__inner { width: min(100% - 48px, var(--hero-max-width)); margin: 0 auto; }
+.page-header__label { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.page-header h1 { font-family: var(--font-display); font-size: clamp(40px, 5vw, 80px); font-weight: 700; line-height: 0.92; letter-spacing: -0.02em; color: var(--fg); margin: 0 0 18px; }
+.page-header p { max-width: 640px; color: var(--fg); font-size: clamp(15px, 1.1vw, 18px); font-weight: 350; line-height: 1.6; margin: 0; }
+
+.section { padding: clamp(48px, 5vw, 88px) 16px; border-bottom: 1px solid var(--border); }
+.section--dark { background: var(--surface); }
+.section__inner { width: min(100% - 48px, var(--hero-max-width)); margin: 0 auto; }
+
+.service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 1.5vw, 24px); }
+.service-card {
+  border: 1px solid var(--border); border-radius: 8px; padding: 32px 28px;
+  background: var(--bg); transition: border-color 200ms ease, transform 200ms ease;
+}
+.service-card:hover { border-color: var(--copper); transform: translateY(-2px); }
+.service-card__icon { font-size: 32px; color: var(--gold); margin-bottom: 16px; display: block; }
+.service-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--fg); margin-bottom: 8px; }
+.service-card p { color: var(--fg); font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+.service-card__tag {
+  display: inline-block; padding: 4px 12px; border: 1px solid var(--border);
+  border-radius: 4px; font-family: var(--font-display); font-size: 11px;
+  font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--fg); margin-right: 6px; margin-bottom: 4px;
+}
+
+@media (max-width: 860px) {
+  .site-nav { grid-template-columns: 1fr auto; }
+  .nav__links { display: none; }
+  .service-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .site-nav { width: min(100% - 24px, var(--hero-max-width)); padding-top: 16px; }
+  .nav__cta { display: none; }
+}
+
+.site-footer { overflow: hidden; background: var(--surface); border-top: 1px solid var(--border); }
+.footer-dots { position: relative; height: 100px; overflow: hidden; }
+.footer-dots__line { position: absolute; left: 0; top: 50%; width: 200%; height: 60px; opacity: 0.5; background-image: radial-gradient(circle, rgb(224 160 32 / 0.4) 1.2px, transparent 1.6px), radial-gradient(circle, rgb(224 160 32 / 0.2) 0.8px, transparent 1.2px), radial-gradient(circle, rgb(224 160 32 / 0.3) 1px, transparent 1.4px); background-position: 0 8px, 24px 22px, 48px 14px; background-size: 60px 32px, 90px 36px, 130px 44px; animation: footerDotsMove 18s linear infinite; transform: translateY(-50%); }
+@keyframes footerDotsMove { from { transform: translate3d(0,-50%,0); } to { transform: translate3d(-50%,-50%,0); } }
+.site-footer__inner { width: min(100% - 48px, var(--hero-max-width)); margin: 0 auto; padding: clamp(28px,3vw,52px) 0 clamp(16px,1.5vw,28px); }
+.site-footer__top { display: grid; grid-template-columns: minmax(280px,1.2fr) repeat(3, minmax(130px,0.4fr)); gap: clamp(24px,3vw,60px); min-height: clamp(180px,20vw,280px); }
+.site-footer__top h2 { max-width: 560px; margin: 0; color: var(--fg); font-family: var(--font-display); font-size: clamp(28px,2.8vw,48px); font-weight: 500; letter-spacing: 0; line-height: 1.08; }
+.site-footer__nav { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(12px,1vw,18px); }
+.site-footer__nav a { color: var(--fg); font-size: 13px; font-weight: 500; line-height: 1.1; transition: color 180ms ease; }
+.site-footer__nav a:hover { color: var(--gold); }
+.site-footer__brand-row { width: 100%; margin-top: clamp(14px,2vw,32px); padding-top: clamp(14px,2vw,32px); border-top: 1px solid var(--border); }
+.site-footer__brand { display: flex; align-items: center; width: 100%; min-width: 0; color: var(--fg); }
+.site-footer__mark { flex: 0 0 clamp(36px,3.5vw,56px); height: clamp(36px,3.5vw,56px); margin-right: clamp(12px,1.2vw,22px); background: var(--copper); border-radius: 4px; display: grid; place-items: center; font-family: var(--font-display); font-size: clamp(20px,2vw,32px); font-weight: 700; color: #ffffff; }
+.site-footer__brand span:last-child { display: block; flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: clamp(42px,7vw,120px); font-weight: 700; letter-spacing: -0.04em; line-height: 0.8; white-space: nowrap; color: var(--border); }
+.site-footer__legal { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 16px; margin-top: clamp(12px,1vw,20px); color: var(--muted); font-size: 9px; line-height: 1.35; }
+.site-footer__legal p { margin: 0; }
+.site-footer__legal a { color: inherit; }
+.site-footer__legal a:hover { color: var(--muted); }
+@media (max-width: 1080px) { .site-footer__top { grid-template-columns: 1fr 1fr; } .site-footer__top h2 { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .site-footer__inner { width: min(100% - 24px, var(--hero-max-width)); } .site-footer__top { grid-template-columns: 1fr; min-height: auto; } .site-footer__brand span:last-child { font-size: clamp(32px,14vw,60px); } }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" id="siteNav">
+    <a class="brand" href="/" aria-label="Zarira Engineering home">
+      <span class="brand__mark" aria-hidden="true">Z</span>
+      <span class="brand__name">Zarira Engineering<small>Solutions Limited</small></span>
+    </a>
+    <div class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="our-works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="nav__cta" href="contact.html"><span>Get a Quote</span><i class="ph ph-arrow-up-right"></i></a>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="page-header__label">Our Services</p>
+      <h1>Eight Lines.<br>One Partner.</h1>
+      <p>Integrated engineering services across civil, electrical, mechanical, and support disciplines — delivered by a single coordinated team based in Lusaka.</p>
+    </div>
+  </header>
+
+  <section class="section section--dark">
+    <div class="section__inner">
+      <div class="service-grid">
+
+        <article class="service-card" id="civil">
+          <i class="ph ph-buildings service-card__icon"></i>
+          <h3>Civil Engineering & Construction</h3>
+          <p>Full-spectrum civil works from residential foundations to commercial complexes and industrial facilities. Our team manages site preparation, structural works, finishing, and handover with certified engineers on every project.</p>
+          <span class="service-card__tag">Residential</span>
+          <span class="service-card__tag">Commercial</span>
+          <span class="service-card__tag">Industrial</span>
+        </article>
+
+        <article class="service-card" id="electrical">
+          <i class="ph ph-lightning service-card__icon"></i>
+          <h3>Electrical & Mechanical Engineering</h3>
+          <p>Electrical installations, switchgear, backup power systems, and comprehensive mechanical engineering including HVAC design, installation, and maintenance for commercial, industrial, and residential projects.</p>
+          <span class="service-card__tag">Electrical</span>
+          <span class="service-card__tag">Mechanical</span>
+          <span class="service-card__tag">HVAC</span>
+          <span class="service-card__tag">Backup Power</span>
+        </article>
+
+        <article class="service-card" id="commissioning">
+          <i class="ph ph-toolbox service-card__icon"></i>
+          <h3>Equipment Installation & Commissioning</h3>
+          <p>End-to-end equipment installation, calibration, commissioning, and ongoing maintenance. We ensure your industrial systems are installed to specification and operating reliably from day one with full documentation.</p>
+          <span class="service-card__tag">Installation</span>
+          <span class="service-card__tag">Calibration</span>
+          <span class="service-card__tag">Commissioning</span>
+          <span class="service-card__tag">Maintenance</span>
+        </article>
+
+        <article class="service-card" id="consulting">
+          <i class="ph ph-clipboard-text service-card__icon"></i>
+          <h3>Troubleshooting, Repair & Consulting</h3>
+          <p>Diagnostic engineering services, on-site troubleshooting, repair works, and independent engineering consulting. We help clients assess problems, evaluate options, and make informed technical decisions.</p>
+          <span class="service-card__tag">Diagnostics</span>
+          <span class="service-card__tag">Repair</span>
+          <span class="service-card__tag">Consulting</span>
+          <span class="service-card__tag">Advisory</span>
+        </article>
+
+        <article class="service-card" id="management">
+          <i class="ph ph-chart-line-up service-card__icon"></i>
+          <h3>Project Management & Advisory</h3>
+          <p>Professional project management services covering planning, procurement coordination, timeline management, quality assurance, and client reporting. We keep your engineering project on track from concept to completion.</p>
+          <span class="service-card__tag">Planning</span>
+          <span class="service-card__tag">Coordination</span>
+          <span class="service-card__tag">QA/QC</span>
+          <span class="service-card__tag">Reporting</span>
+        </article>
+
+        <article class="service-card" id="procurement">
+          <i class="ph ph-shopping-cart service-card__icon"></i>
+          <h3>Procurement & Supply</h3>
+          <p>Procurement and supply of industrial equipment, construction materials, engineering consumables, and general merchandise. We leverage established supplier relationships to source quality materials at competitive prices.</p>
+          <span class="service-card__tag">Equipment</span>
+          <span class="service-card__tag">Materials</span>
+          <span class="service-card__tag">Consumables</span>
+          <span class="service-card__tag">Supply Chain</span>
+        </article>
+
+        <article class="service-card" id="logistics">
+          <i class="ph ph-truck service-card__icon"></i>
+          <h3>Logistics & Transportation</h3>
+          <p>Coordinated logistics support for equipment movement, material delivery, and site transport. We manage the supply chain so your project materials arrive where they need to be, when they need to be there.</p>
+          <span class="service-card__tag">Transport</span>
+          <span class="service-card__tag">Equipment Moves</span>
+          <span class="service-card__tag">Site Delivery</span>
+          <span class="service-card__tag">Fleet</span>
+        </article>
+
+        <article class="service-card" id="car-hire">
+          <i class="ph ph-car service-card__icon"></i>
+          <h3>Car Hire & Auto Services</h3>
+          <p>Vehicle hire services for short-term and long-term requirements, backed by a maintained fleet. Supporting both project-site transport and individual client mobility needs across Lusaka and beyond.</p>
+          <span class="service-card__tag">Short-Term</span>
+          <span class="service-card__tag">Long-Term</span>
+          <span class="service-card__tag">Project Transport</span>
+          <span class="service-card__tag">Lusaka</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-dots" aria-hidden="true"><div class="footer-dots__line"></div></div>
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <h2>Engineering Solutions for a Growing Zambia.</h2>
+        <nav class="site-footer__nav" aria-label="Site pages">
+          <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a>
+          <a href="our-works.html">Our Works</a><a href="contact.html">Contact</a>
+        </nav>
+        <nav class="site-footer__nav" aria-label="Services">
+          <a href="#civil">Civil & Construction</a><a href="#electrical">Electrical & Mechanical</a>
+          <a href="#commissioning">Commissioning</a><a href="#consulting">Consulting & Advisory</a>
+          <a href="#logistics">Logistics & Transport</a>
+        </nav>
+        <nav class="site-footer__nav" aria-label="Connect">
+          <a href="contact.html">Get a Quote</a><a href="mailto:info@zariraengineering.com">Email Us</a>
+        </nav>
+      </div>
+      <div class="site-footer__brand-row">
+        <a class="site-footer__brand" href="/" aria-label="Zarira Engineering home">
+          <span class="site-footer__mark" aria-hidden="true">Z</span>
+          <span>Zarira Engineering Solutions</span>
+        </a>
+      </div>
+      <div class="site-footer__legal">
+        <p>&copy; 2026 Zarira Engineering Solutions Limited. All rights reserved.</p>
+        <a href="#">Privacy Policy</a><a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var nav = document.getElementById("siteNav");
+      window.addEventListener("scroll", function() {
+        nav.classList.toggle("nav--solid", window.scrollY > 80);
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

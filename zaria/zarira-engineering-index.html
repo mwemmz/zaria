@@ -1,0 +1,1815 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zarira Engineering Solutions Limited — multi-service engineering firm serving residential, commercial, and industrial clients across Lusaka and Zambia.">
+  <title>Zarira Engineering Solutions | Driving Innovation. Delivering Excellence.</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200..700&amp;family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+:root {
+  color-scheme: light;
+  --font-display: 'Rajdhani', 'Barlow Condensed', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+  --bg: #888888;
+  --surface: #ffffff;
+  --fg: oklch(12% 0 0);
+  --muted: oklch(44% 0 0);
+  --border: oklch(72% 0 0);
+
+  --copper: oklch(50% 0.10 35);
+  --copper-bright: oklch(58% 0.11 38);
+  --gold: oklch(80% 0.16 72);
+  --gold-bright: oklch(88% 0.14 72);
+
+  --success: oklch(55% 0.12 145);
+  --warning: oklch(65% 0.11 80);
+  --danger: oklch(50% 0.14 30);
+
+  --hero-max-width: 1400px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { min-height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ===== SHARED NAV ===== */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) auto minmax(160px, 1fr);
+  align-items: center;
+  gap: 28px;
+  width: min(100% - 48px, var(--hero-max-width));
+  margin: 0;
+  padding: 22px 16px 14px;
+  color: var(--fg);
+  transform: translate3d(-50%, 0, 0);
+  transition: background-color 300ms ease, backdrop-filter 300ms ease, padding 300ms ease, border-radius 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+.site-nav.nav--solid {
+  transform: translate3d(-50%, 12px, 0);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 12px 20px;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.site-nav.nav--solid .brand__name { color: #222222; }
+.site-nav.nav--solid .nav__links { color: rgba(0, 0, 0, 0.55); }
+.site-nav.nav--solid .nav__links a:hover,
+.site-nav.nav--solid .nav__links a[aria-current="page"] { color: var(--copper); }
+.site-nav.nav--solid .nav__cta { color: var(--copper); border-color: var(--copper); }
+.site-nav.nav--solid .nav__cta:hover { background: var(--copper); color: #ffffff; border-color: var(--copper); }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: start;
+}
+
+.brand__mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: var(--copper);
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: 0.02em;
+}
+
+.brand__name small {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--fg);
+  display: block;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: -1px;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2vw, 32px);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav__links a {
+  transition: color 180ms ease;
+  position: relative;
+}
+
+.nav__links a:hover,
+.nav__links a[aria-current="page"] {
+  color: var(--gold);
+}
+
+.nav__cta {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.nav__cta:hover {
+  background: var(--gold);
+  color: #ffffff;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 180vh;
+  min-height: 900px;
+  overflow: clip;
+  background: var(--bg);
+}
+
+.hero__bg {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 52% 18%, rgb(96 32 0 / 0.18), transparent 50%),
+    radial-gradient(ellipse at 82% 76%, rgb(224 160 32 / 0.08), transparent 40%),
+    linear-gradient(180deg, #b8b8b8 0%, #a6a6a6 55%, #949494 100%);
+}
+
+.hero__pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 60px, color-mix(in oklch, var(--gold) 25%, transparent) 60px, color-mix(in oklch, var(--gold) 25%, transparent) 61px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, color-mix(in oklch, var(--gold) 25%, transparent) 60px, color-mix(in oklch, var(--gold) 25%, transparent) 61px);
+  pointer-events: none;
+}
+
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 28%, color-mix(in oklch, var(--gold) 8%, transparent), transparent 40%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: min(100%, var(--hero-max-width));
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.hero__title {
+  position: fixed;
+  top: calc(50% - 40px);
+  left: 5%;
+  z-index: 10;
+  margin: 0;
+  pointer-events: none;
+  transform: translate3d(0, var(--scroll-y, 0px), 0);
+  will-change: transform, opacity;
+}
+
+.hero__title-line {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(80px, 12vw, 180px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.hero__title-line--accent {
+  color: var(--gold);
+}
+
+.hero__subtitle {
+  position: fixed;
+  bottom: 120px;
+  left: 5%;
+  z-index: 10;
+  max-width: 560px;
+  pointer-events: none;
+  transform: translate3d(0, var(--scroll-y, 0px), 0);
+  will-change: transform, opacity;
+}
+
+.hero__subtitle p {
+  margin: 0;
+  color: var(--fg);
+  font-size: clamp(14px, 1.1vw, 18px);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.hero__subtitle p strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.hero__caption {
+  position: fixed;
+  z-index: 4;
+  right: clamp(24px, 4vw, 72px);
+  bottom: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--fg);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transform: translate3d(0, var(--scroll-y, 0px), 0);
+  will-change: transform, opacity;
+}
+
+.hero__caption::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--copper);
+}
+
+.hero.is-past .hero__title,
+.hero.is-past .hero__subtitle,
+.hero.is-past .hero__caption {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== MISSION ===== */
+.mission {
+  position: relative;
+  z-index: 40;
+  min-height: 90vh;
+  margin-top: -10vh;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 20px rgba(0,0,0,0.06);
+}
+
+.mission__inner {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.85fr) minmax(0, 2fr);
+  grid-template-rows: auto minmax(320px, 1fr);
+  column-gap: clamp(40px, 6vw, 120px);
+  row-gap: clamp(60px, 4vw, 80px);
+  width: min(100% - 48px, var(--hero-max-width));
+  min-height: 90vh;
+  margin: 0 auto;
+  padding: clamp(40px, 4vw, 64px) 0 clamp(40px, 4vw, 64px);
+}
+
+.mission__eyebrow {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  margin: 0;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mission__statement {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  max-width: 900px;
+}
+
+.mission__statement h2 {
+  margin: 0;
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 2.6vw, 48px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.mission__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: clamp(36px, 2.8vw, 56px);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  pointer-events: auto;
+}
+
+.mission__button-icon {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(48px, 3vw, 56px);
+  aspect-ratio: 1;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  background: transparent;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.mission__button-icon .ph {
+  font-size: clamp(18px, 1.3vw, 22px);
+  color: var(--gold);
+}
+
+.mission__button:hover .mission__button-icon {
+  background: var(--gold);
+}
+
+.mission__button:hover .mission__button-icon .ph {
+  color: #ffffff;
+}
+
+.mission__support {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  max-width: 400px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(16px, 1.1vw, 20px);
+  font-weight: 350;
+  line-height: 1.5;
+}
+
+.mission__media {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+}
+
+.mission__media-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  color: var(--fg);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mission__media-placeholder .ph {
+  font-size: 48px;
+  color: var(--copper);
+}
+
+/* ===== SHOWCASE ===== */
+.showcase-film {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  z-index: 45;
+  overflow: hidden;
+  background: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  will-change: top, left, width, height, border-radius, opacity;
+}
+
+.showcase-film__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--copper);
+  pointer-events: none;
+}
+
+.showcase {
+  position: relative;
+  z-index: 50;
+  height: 600vh;
+}
+
+.showcase__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: transparent;
+  overflow: visible;
+}
+
+.showcase__ui {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  padding: clamp(28px, 3.5vw, 64px);
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.showcase__panels {
+  grid-column: 1;
+  position: relative;
+  min-height: clamp(200px, 28vh, 360px);
+  max-width: 620px;
+}
+
+.showcase__panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 460ms cubic-bezier(0.4, 0, 0.2, 1), transform 460ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.showcase__panel.is-active { opacity: 1; transform: none; pointer-events: auto; }
+
+.showcase__panel-num {
+  display: block;
+  margin: 0 0 clamp(10px, 0.9vw, 16px);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: clamp(12px, 0.8vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.showcase__panel-title {
+  margin: 0 0 clamp(12px, 1.1vw, 22px);
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.6vw, 64px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.showcase__panel-desc {
+  max-width: 480px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(13px, 0.95vw, 16px);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.showcase__tabs-nav {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(8px, 0.7vw, 16px);
+  padding-left: clamp(28px, 4vw, 80px);
+  pointer-events: auto;
+}
+
+.showcase__tab {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 0.6vw, 12px);
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: clamp(12px, 0.8vw, 14px);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+  transition: color 320ms ease;
+}
+
+.showcase__tab.is-active { color: var(--gold); }
+
+.showcase__tab-bar {
+  display: block;
+  flex-shrink: 0;
+  width: 2px;
+  height: 16px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+
+.showcase__tab.is-active .showcase__tab-bar { opacity: 1; }
+
+.showcase__tab-name { transition: color 320ms ease; }
+
+.showcase__tab-num {
+  font-weight: 600;
+  font-size: clamp(10px, 0.65vw, 12px);
+  color: var(--border);
+}
+
+.showcase__tab.is-active .showcase__tab-num { color: var(--gold); }
+
+/* ===== CAPABILITIES ===== */
+.capabilities {
+  position: relative;
+  z-index: 70;
+  min-height: 100vh;
+  padding: clamp(40px, 4vw, 72px) clamp(16px, 3vw, 48px);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 20px rgba(0,0,0,0.06);
+}
+
+.capabilities__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: var(--hero-max-width);
+  margin: 0 auto clamp(24px, 2.5vw, 40px);
+}
+
+.capabilities__intro { max-width: min(720px, calc(100% - 160px)); }
+
+.capabilities__intro h2 {
+  margin: 0;
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 2.8vw, 48px);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.capabilities__intro p {
+  max-width: 660px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: clamp(13px, 0.9vw, 15px);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.capabilities__button {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.capabilities__button:hover {
+  background: var(--gold);
+  color: #ffffff;
+}
+
+.capabilities__button .ph { font-size: 16px; }
+
+.capabilities__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(12px, 1vw, 18px);
+  max-width: var(--hero-max-width);
+  min-height: clamp(560px, 68vh, 740px);
+  margin: 0 auto;
+}
+
+.capabilities__stack {
+  display: grid;
+  grid-template-rows: minmax(200px, 0.7fr) minmax(240px, 1fr);
+  gap: clamp(12px, 1vw, 18px);
+  min-width: 0;
+}
+
+.capabilities__stack--systems {
+  grid-template-rows: minmax(380px, 1.4fr) auto;
+}
+
+.cap-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.cap-card:hover {
+  border-color: var(--copper);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.cap-card--tall, .cap-card--metric { min-height: 0; }
+
+.cap-card--media {
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.cap-card__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 0.04), transparent 36%),
+    linear-gradient(0deg, rgb(0 0 0 / 0.08), transparent 48%);
+}
+
+.cap-card__label {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cap-card__label--left { justify-content: flex-start; padding: 0; color: var(--muted); }
+
+.cap-card__timeline {
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.cap-card__timeline div {
+  display: grid;
+  grid-template-columns: 50px 12px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  color: var(--fg);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.cap-card__timeline b {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.cap-card__timeline strong {
+  min-width: 0;
+  color: var(--fg);
+  font-size: clamp(12px, 0.85vw, 14px);
+  font-weight: 600;
+}
+
+.cap-card__timeline em {
+  color: var(--fg);
+  font-style: normal;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.cap-card--quote,
+.cap-card--contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  background:
+    linear-gradient(135deg, #f0f0f0, #e8e8e8),
+    #e8e8e8;
+}
+
+.cap-card--quote blockquote {
+  margin: clamp(18px, 2vw, 28px) 0 16px;
+  color: var(--fg);
+  font-size: clamp(14px, 0.95vw, 16px);
+  font-weight: 350;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.cap-card--quote p, .cap-card--contact p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.cap-card--quote strong {
+  display: block;
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cap-card--metric {
+  display: block;
+  min-height: 260px;
+  background:
+    radial-gradient(ellipse at 50% 30%, color-mix(in oklch, var(--copper) 8%, transparent), transparent 60%),
+    var(--surface);
+}
+
+.cap-card__metric {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.cap-card__metric strong {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: var(--font-display);
+  font-size: clamp(64px, 6vw, 112px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.9;
+  color: var(--gold);
+  transform: translate(-50%, -50%);
+}
+
+.cap-card__metric span {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  color: var(--fg);
+  font-size: clamp(12px, 0.9vw, 15px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.cap-card--tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 0 clamp(16px, 1.5vw, 24px);
+  background: var(--bg);
+}
+
+.cap-card--tools .cap-card__label { color: var(--fg); }
+
+.cap-card--tools-media { min-height: 360px; padding-bottom: 0; }
+
+.cap-card--tools-media .cap-card__label { color: var(--gold); }
+
+.cap-card--tools-media .cap-card__shade {
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 0.08), transparent 36%),
+    linear-gradient(0deg, rgb(0 0 0 / 0.15), transparent 48%);
+}
+
+.tool-marquee {
+  display: grid;
+  gap: 10px;
+  overflow: hidden;
+  padding: 20px 0 6px;
+  mask-image: linear-gradient(to right, transparent, var(--bg) 8%, var(--bg) 92%, transparent);
+}
+
+.tool-marquee__row {
+  display: flex;
+  width: max-content;
+  gap: 10px;
+}
+
+.tool-marquee__row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.cap-card--tools-media .tool-marquee__row span {
+  border-color: color-mix(in oklch, var(--gold) 20%, var(--border));
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.tool-marquee__row .ph { font-size: 17px; color: var(--gold); }
+.tool-marquee__row--left { animation: marquee-left 24s linear infinite; }
+.tool-marquee__row--right { animation: marquee-right 28s linear infinite; }
+
+@keyframes marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+.cap-card--contact {
+  min-height: 110px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 64px 18px 22px;
+}
+
+.cap-card--contact a:not(.cap-card__icon-button) {
+  display: inline-block;
+  margin: 10px 0 4px;
+  color: var(--fg);
+  font-size: clamp(16px, 1.2vw, 20px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.1;
+  font-family: var(--font-display);
+}
+
+.cap-card__icon-button {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  z-index: 2;
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gold);
+  transform: translateY(-50%);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.cap-card__icon-button:hover {
+  background: var(--gold);
+  color: #ffffff;
+}
+
+.cap-card__icon-button .ph { font-size: 17px; }
+
+/* ===== VIDEO STORIES ===== */
+.video-stories {
+  position: relative;
+  z-index: 90;
+  min-height: 100vh;
+  padding: clamp(40px, 4vw, 72px) 0 clamp(36px, 3vw, 56px);
+  overflow: hidden;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 20px rgba(0,0,0,0.06);
+}
+
+.video-stories__header {
+  width: min(100% - 48px, 800px);
+  margin: 0 auto clamp(32px, 3vw, 56px);
+}
+
+.video-stories__header h2 {
+  margin: 0;
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.6vw, 60px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.video-stories__header p {
+  max-width: 640px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.video-stories__rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(420px, 32vw);
+  gap: clamp(24px, 2.5vw, 44px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding: 0 max(48px, calc((100vw - var(--hero-max-width)) / 2 + 48px)) 28px;
+  scrollbar-width: none;
+}
+
+.video-stories__rail::-webkit-scrollbar { display: none; }
+
+.story-card {
+  scroll-snap-align: center;
+  min-width: 0;
+  opacity: 0.5;
+  transform: translateY(8px);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.story-card:hover, .story-card:focus-within { opacity: 1; transform: none; }
+
+.story-card__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  object-fit: cover;
+  object-position: center;
+  display: grid;
+  place-items: center;
+}
+
+.story-card__media-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  color: var(--fg);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.story-card__media-placeholder .ph {
+  font-size: 32px;
+  color: var(--copper);
+}
+
+.story-card__content { padding: 18px 20px 0; }
+
+.story-card__content p {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.story-card__content h3 {
+  max-width: 560px;
+  margin: 0;
+  color: var(--fg);
+  font-size: clamp(16px, 1vw, 20px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.story-card__content span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.video-stories__footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: min(100% - 48px, 800px);
+  margin: 24px auto 0;
+}
+
+.video-stories__footer span {
+  display: block;
+  width: 40px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.video-stories__footer span:nth-child(3) {
+  width: 260px;
+  background: var(--gold);
+}
+
+.video-stories__footer strong {
+  margin-left: 14px;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 20px rgba(0,0,0,0.06);
+}
+
+.footer-dots {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+
+.footer-dots__line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 200%;
+  height: 60px;
+  opacity: 0.45;
+  background-image:
+    radial-gradient(circle, color-mix(in oklch, var(--gold) 35%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in oklch, var(--copper) 15%, transparent) 0.8px, transparent 1.2px),
+    radial-gradient(circle, color-mix(in oklch, var(--gold) 25%, transparent) 1px, transparent 1.4px);
+  background-position: 0 8px, 24px 22px, 48px 14px;
+  background-size: 60px 32px, 90px 36px, 130px 44px;
+  animation: footerDotsMove 18s linear infinite;
+  transform: translateY(-50%);
+}
+
+@keyframes footerDotsMove {
+  from { transform: translate3d(0, -50%, 0); }
+  to { transform: translate3d(-50%, -50%, 0); }
+}
+
+.site-footer__inner {
+  width: min(100% - 48px, var(--hero-max-width));
+  margin: 0 auto;
+  padding: clamp(28px, 3vw, 52px) 0 clamp(16px, 1.5vw, 28px);
+}
+
+.site-footer__top {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.2fr) repeat(3, minmax(130px, 0.4fr));
+  gap: clamp(24px, 3vw, 60px);
+  min-height: clamp(180px, 20vw, 280px);
+}
+
+.site-footer__top h2 {
+  max-width: 560px;
+  margin: 0;
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 2.8vw, 48px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(12px, 1vw, 18px);
+}
+
+.site-footer__nav a {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.1;
+  transition: color 180ms ease;
+}
+
+.site-footer__nav a:hover { color: var(--gold); }
+
+.site-footer__brand-row {
+  width: 100%;
+  margin-top: clamp(14px, 2vw, 32px);
+  padding-top: clamp(14px, 2vw, 32px);
+  border-top: 1px solid var(--border);
+}
+
+.site-footer__brand {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  color: var(--fg);
+}
+
+.site-footer__mark {
+  flex: 0 0 clamp(36px, 3.5vw, 56px);
+  height: clamp(36px, 3.5vw, 56px);
+  margin-right: clamp(12px, 1.2vw, 22px);
+  background: var(--copper);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2vw, 32px);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.site-footer__brand span:last-child {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: clamp(42px, 7vw, 120px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+  white-space: nowrap;
+  color: var(--fg);
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px 16px;
+  margin-top: clamp(12px, 1vw, 20px);
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.site-footer__legal p { margin: 0; }
+.site-footer__legal a { color: inherit; }
+.site-footer__legal a:hover { color: var(--muted); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1080px) {
+  .capabilities__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: auto; }
+  .capabilities__stack:last-child { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(220px, 1fr); }
+  .site-footer__top { grid-template-columns: 1fr 1fr; }
+  .site-footer__top h2 { grid-column: 1 / -1; }
+  .mission__inner { grid-template-columns: minmax(160px, 0.7fr) minmax(0, 1.7fr); column-gap: clamp(28px, 4vw, 56px); }
+}
+
+@media (max-width: 860px) {
+  .site-nav { grid-template-columns: 1fr auto; }
+  .nav__links { display: none; }
+  .mission { margin-top: -6vh; }
+  .mission__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-height: auto;
+    padding: 28px 0 36px;
+  }
+  .mission__support { max-width: 500px; margin-top: 0; }
+  .mission__media { margin-top: 12px; }
+  .showcase__ui { grid-template-columns: 1fr; }
+  .showcase__tabs-nav { display: none; }
+  .capabilities__intro { max-width: 100%; }
+  .video-stories__rail { grid-auto-columns: minmax(280px, 78vw); padding: 0 24px 24px; }
+  .story-card { opacity: 1; transform: none; }
+  .site-footer__top { grid-template-columns: 1fr; min-height: auto; }
+}
+
+@media (max-width: 760px) {
+  .capabilities__header { flex-direction: column; }
+  .capabilities__grid, .capabilities__stack, .capabilities__stack:last-child { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .cap-card--tall { min-height: 480px; }
+  .cap-card__timeline div { grid-template-columns: 44px 10px minmax(0, 1fr); }
+  .cap-card__timeline em { grid-column: 3; white-space: normal; }
+}
+
+@media (max-width: 560px) {
+  .site-nav { width: min(100% - 24px, var(--hero-max-width)); padding-top: 16px; }
+  .nav__cta { display: none; }
+  .hero__title-line { font-size: clamp(56px, 26vw, 100px); }
+  .hero__caption { display: none; }
+  .hero__subtitle { bottom: 80px; right: 5%; }
+  .video-stories__header { width: min(100% - 32px, 800px); }
+  .site-footer__inner { width: min(100% - 24px, var(--hero-max-width)); }
+  .site-footer__brand span:last-child { font-size: clamp(32px, 14vw, 60px); }
+  .stats__chart { min-height: auto; padding-bottom: 36px; }
+}
+  </style>
+</head>
+<body>
+  <nav class="site-nav" id="siteNav">
+    <a class="brand" href="/" aria-label="Zarira Engineering home">
+      <span class="brand__mark" aria-hidden="true">Z</span>
+      <span class="brand__name">
+        Zarira Engineering
+        <small>Solutions Limited</small>
+      </span>
+    </a>
+
+    <div class="nav__links">
+      <a href="/" aria-current="page">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="our-works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a class="nav__cta" href="contact.html">
+      <span>Get a Quote</span>
+      <i class="ph ph-arrow-up-right"></i>
+    </a>
+  </nav>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="heroScroll" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__pattern"></div>
+        <div class="hero__glow"></div>
+      </div>
+
+      <div class="hero__content">
+        <h1 id="hero-title" class="hero__title" aria-label="Zarira Engineering">
+          <span class="hero__title-line">Engineering</span>
+          <span class="hero__title-line hero__title-line--accent">Solutions</span>
+        </h1>
+
+        <div class="hero__subtitle" aria-hidden="true">
+          <p>
+            Multi-service engineering firm delivering <strong>civil, electrical, mechanical</strong> and 
+            industrial solutions across Zambia. Residential. Commercial. Industrial.
+          </p>
+        </div>
+      </div>
+
+      <p class="hero__caption">Driving Innovation. Delivering Excellence.</p>
+    </section>
+
+    <!-- ===== MISSION ===== -->
+    <section class="mission" id="company" aria-labelledby="mission-title">
+      <div class="mission__inner">
+        <p class="mission__eyebrow">Our Mission</p>
+
+        <div class="mission__statement">
+          <h2 id="mission-title">
+            Zarira Engineering Solutions brings professional engineering, reliable project management, 
+            and responsive client support to every project — from residential builds to large-scale 
+            industrial infrastructure.
+          </h2>
+
+          <a class="mission__button" href="about.html">
+            <span class="mission__button-icon" aria-hidden="true">
+              <i class="ph ph-arrow-elbow-down-right"></i>
+            </span>
+            <span>About Our Firm</span>
+          </a>
+        </div>
+
+        <p class="mission__support">
+          Based in Lusaka, we serve clients across Zambia with a team built on professionalism, 
+          safety, reliability, and a commitment to customer satisfaction.
+        </p>
+
+        <div class="mission__media">
+          <div class="mission__media-placeholder">
+            <i class="ph ph-buildings"></i>
+            <span>Zarira Engineering — Project Media</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SHOWCASE (empty, populated by JS) ===== -->
+    <section class="showcase" id="services-showcase" aria-label="Our services"></section>
+
+    <!-- ===== CAPABILITIES ===== -->
+    <section class="capabilities" id="solutions" aria-labelledby="capabilities-title">
+      <div class="capabilities__header">
+        <div class="capabilities__intro">
+          <h2 id="capabilities-title">Eight service lines — one integrated engineering partner.</h2>
+          <p>
+            From civil construction and electrical installations to equipment commissioning, logistics, 
+            and car hire — Zarira Engineering delivers end-to-end project support across Zambia.
+          </p>
+        </div>
+
+        <a class="capabilities__button" href="services.html">
+          <span>View All Services</span>
+          <i class="ph ph-arrow-up-right"></i>
+        </a>
+      </div>
+
+      <div class="capabilities__grid" aria-label="Zarira Engineering services and proof points">
+        <!-- Tall card — Civil + timeline -->
+        <article class="cap-card cap-card--tall cap-card--media">
+          <div class="cap-card__shade" aria-hidden="true"></div>
+          <div class="cap-card__label"><span>Civil &amp; Construction</span></div>
+          <div class="cap-card__timeline">
+            <div><span>2026</span><b></b><strong>Lusaka commercial complex</strong><em>Structural delivery</em></div>
+            <div><span>2025</span><b></b><strong>Industrial facility expansion</strong><em>Foundations complete</em></div>
+            <div><span>2024</span><b></b><strong>Residential estate project</strong><em>Phase 1 handover</em></div>
+          </div>
+        </article>
+
+        <!-- Stack col 2 -->
+        <div class="capabilities__stack">
+          <article class="cap-card cap-card--quote">
+            <div class="cap-card__label cap-card__label--left"><span>Client Ethos</span></div>
+            <blockquote>
+              "What sets Zarira apart is their responsiveness. When we needed revised structural 
+              drawings on a tight timeline, they delivered in 48 hours — no excuses."
+            </blockquote>
+            <p><strong>Engineering Practice Lead</strong> Lusaka-based Industrial Partner</p>
+          </article>
+
+          <article class="cap-card cap-card--metric">
+            <div class="cap-card__metric">
+              <strong>8</strong>
+              <span>Integrated engineering service lines under one management team</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Stack col 3 -->
+        <div class="capabilities__stack capabilities__stack--systems">
+          <article class="cap-card cap-card--tools cap-card--tools-media">
+            <div class="cap-card__shade" aria-hidden="true"></div>
+            <div class="cap-card__label"><span>Core Capabilities</span></div>
+
+            <div class="tool-marquee" aria-hidden="true">
+              <div class="tool-marquee__row tool-marquee__row--left">
+                <span><i class="ph ph-wrench"></i> Civil</span>
+                <span><i class="ph ph-lightning"></i> Electrical</span>
+                <span><i class="ph ph-gear-six"></i> Mechanical</span>
+                <span><i class="ph ph-toolbox"></i> Commissioning</span>
+                <span><i class="ph ph-clipboard-text"></i> Consulting</span>
+                <span><i class="ph ph-wrench"></i> Civil</span>
+                <span><i class="ph ph-lightning"></i> Electrical</span>
+                <span><i class="ph ph-gear-six"></i> Mechanical</span>
+                <span><i class="ph ph-toolbox"></i> Commissioning</span>
+                <span><i class="ph ph-clipboard-text"></i> Consulting</span>
+              </div>
+              <div class="tool-marquee__row tool-marquee__row--right">
+                <span><i class="ph ph-truck"></i> Logistics</span>
+                <span><i class="ph ph-car"></i> Car Hire</span>
+                <span><i class="ph ph-shopping-cart"></i> Supply</span>
+                <span><i class="ph ph-chart-line-up"></i> Advisory</span>
+                <span><i class="ph ph-shield-check"></i> Safety</span>
+                <span><i class="ph ph-truck"></i> Logistics</span>
+                <span><i class="ph ph-car"></i> Car Hire</span>
+                <span><i class="ph ph-shopping-cart"></i> Supply</span>
+                <span><i class="ph ph-chart-line-up"></i> Advisory</span>
+                <span><i class="ph ph-shield-check"></i> Safety</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="cap-card cap-card--contact" id="contact-card">
+            <div>
+              <div class="cap-card__label cap-card__label--left"><span>Reach Engineering</span></div>
+              <a href="mailto:info@zariraengineering.com">info@zariraengineering.com</a>
+              <p>Lusaka, Zambia · +260 979 669 350</p>
+            </div>
+            <a class="cap-card__icon-button" href="mailto:info@zariraengineering.com" aria-label="Email Zarira Engineering">
+              <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECT STORIES ===== -->
+    <section class="video-stories" id="our-team" aria-labelledby="video-stories-title">
+      <div class="video-stories__header">
+        <h2 id="video-stories-title">Project stories from the teams building Zambia's infrastructure.</h2>
+        <p>
+          Short field notes from project leads, site engineers, and logistics teams managing 
+          engineering work across residential, commercial, and industrial sectors.
+        </p>
+      </div>
+
+      <div class="video-stories__rail" aria-label="Project previews">
+        <article class="story-card">
+          <div class="story-card__media">
+            <div class="story-card__media-placeholder">
+              <i class="ph ph-buildings"></i>
+              <span>Commercial Complex</span>
+            </div>
+          </div>
+          <div class="story-card__content">
+            <p>Civil Engineering</p>
+            <h3>Multi-story commercial structure — from foundation excavation to structural handover.</h3>
+            <span>Lusaka · 6-month delivery</span>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-card__media">
+            <div class="story-card__media-placeholder">
+              <i class="ph ph-lightning"></i>
+              <span>Electrical Installation</span>
+            </div>
+          </div>
+          <div class="story-card__content">
+            <p>Electrical Engineering</p>
+            <h3>Complete electrical fit-out for an industrial facility — switchgear, lighting, and backup power.</h3>
+            <span>Industrial · 3-month phase</span>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-card__media">
+            <div class="story-card__media-placeholder">
+              <i class="ph ph-gear-six"></i>
+              <span>Mechanical Systems</span>
+            </div>
+          </div>
+          <div class="story-card__content">
+            <p>Mechanical Engineering</p>
+            <h3>HVAC and mechanical system design for a new commercial development in Lusaka.</h3>
+            <span>Commercial · 4-week install</span>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-card__media">
+            <div class="story-card__media-placeholder">
+              <i class="ph ph-toolbox"></i>
+              <span>Equipment Commissioning</span>
+            </div>
+          </div>
+          <div class="story-card__content">
+            <p>Commissioning</p>
+            <h3>On-site equipment installation, calibration, and commissioning for a manufacturing client.</h3>
+            <span>Industrial · 2-week site</span>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-card__media">
+            <div class="story-card__media-placeholder">
+              <i class="ph ph-truck"></i>
+              <span>Logistics Support</span>
+            </div>
+          </div>
+          <div class="story-card__content">
+            <p>Logistics &amp; Transport</p>
+            <h3>Coordinated equipment transport and site delivery for a multi-site infrastructure upgrade.</h3>
+            <span>Nationwide · ongoing</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="video-stories__footer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <strong>05 / 05</strong>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-dots" aria-hidden="true">
+      <div class="footer-dots__line"></div>
+    </div>
+
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <h2>Engineering Solutions for a Growing Zambia.</h2>
+
+        <nav class="site-footer__nav" aria-label="Site pages">
+          <a href="/">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="our-works.html">Our Works</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <nav class="site-footer__nav" aria-label="Services">
+          <a href="services.html#civil">Civil &amp; Construction</a>
+          <a href="services.html#electrical">Electrical &amp; Mechanical</a>
+          <a href="services.html#commissioning">Commissioning</a>
+          <a href="services.html#consulting">Consulting &amp; Advisory</a>
+          <a href="services.html#logistics">Logistics &amp; Transport</a>
+        </nav>
+
+        <nav class="site-footer__nav" aria-label="Connect">
+          <a href="contact.html">Get a Quote</a>
+          <a href="mailto:info@zariraengineering.com">Email Us</a>
+        </nav>
+      </div>
+
+      <div class="site-footer__brand-row">
+        <a class="site-footer__brand" href="/" aria-label="Zarira Engineering home">
+          <span class="site-footer__mark" aria-hidden="true">Z</span>
+          <span>Zarira Engineering Solutions</span>
+        </a>
+      </div>
+
+      <div class="site-footer__legal">
+        <p>© 2026 Zarira Engineering Solutions Limited. All rights reserved.</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+// === Nav scroll behaviour ===
+(function navScroll() {
+  const nav = document.getElementById("siteNav");
+  let lastY = 0;
+  window.addEventListener("scroll", function () {
+    const y = window.scrollY;
+    if (y > 80) { nav.classList.add("nav--solid"); } else { nav.classList.remove("nav--solid"); }
+    lastY = y;
+  }, { passive: true });
+})();
+
+// === Hero ===
+(function heroScroll() {
+  const hero = document.getElementById("heroScroll");
+  const title = hero.querySelector(".hero__title");
+  const subtitle = hero.querySelector(".hero__subtitle");
+  const caption = hero.querySelector(".hero__caption");
+  if (!hero || !title || !subtitle || !caption) return;
+
+  function animate() {
+    const rect = hero.getBoundingClientRect();
+    const scrollLength = Math.max(hero.offsetHeight - window.innerHeight, 1);
+    const scrollProgress = Math.max(Math.abs(rect.top) / scrollLength, 0);
+    const scrollY = Math.abs(rect.top);
+
+    const fadeStart = 0.8 * window.innerHeight;
+    const fadeEnd = 1.2 * window.innerHeight;
+    let fade = 1;
+    if (scrollY > fadeStart) {
+      fade = 1 - Math.min((scrollY - fadeStart) / (fadeEnd - fadeStart), 1);
+    }
+
+    title.style.setProperty("--scroll-y", (scrollProgress * -100).toFixed(2) + "px");
+    subtitle.style.setProperty("--scroll-y", (scrollProgress * -60).toFixed(2) + "px");
+    caption.style.setProperty("--scroll-y", (scrollProgress * -50).toFixed(2) + "px");
+
+    title.style.opacity = fade;
+    subtitle.style.opacity = fade;
+    caption.style.opacity = fade;
+
+    hero.classList.toggle("is-past", rect.bottom <= 0);
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
+
+// === Showcase Section ===
+const SHOWCASE_TABS = [
+  { num: "01", label: "Civil & Construction", title: "Foundations to<br>Full Structures", desc: "From residential foundations to commercial complexes and industrial facilities — we manage the full construction lifecycle with certified engineers on every site." },
+  { num: "02", label: "Electrical & Mechanical", title: "Power, HVAC,<br>& Automation", desc: "Electrical installations, switchgear, backup power, mechanical system design, and HVAC for commercial, industrial, and residential projects across Zambia." },
+  { num: "03", label: "Equipment & Commissioning", title: "Installation to<br>Certified Operation", desc: "On-site equipment installation, calibration, commissioning, and maintenance programs that ensure your industrial systems run reliably from day one." },
+  { num: "04", label: "Consulting & Advisory", title: "Engineering<br>That Advises", desc: "Troubleshooting, repair, project management, and engineering consulting — we help clients make informed decisions at every stage of their project." },
+];
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
+function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+(function showcaseInit() {
+  var el = document.querySelector(".showcase");
+  var missionMedia = document.querySelector(".mission__media");
+  if (!el || !missionMedia) return;
+
+  var film = document.createElement("div");
+  film.className = "showcase-film";
+  film.innerHTML = '<div class="showcase-film__overlay" style="background:var(--copper)"></div>';
+  document.body.appendChild(film);
+  var filmOverlay = film.querySelector(".showcase-film__overlay");
+
+  el.innerHTML =
+    '<div class="showcase__sticky">' +
+      '<div class="showcase__ui" aria-live="polite">' +
+        '<div class="showcase__panels">' +
+          SHOWCASE_TABS.map(function(t, i) {
+            return '<div class="showcase__panel' + (i === 0 ? " is-active" : "") + '" data-index="' + i + '" aria-hidden="' + (i !== 0) + '">' +
+              '<span class="showcase__panel-num">' + t.num + '</span>' +
+              '<h2 class="showcase__panel-title">' + t.title + '</h2>' +
+              '<p class="showcase__panel-desc">' + t.desc + '</p>' +
+            '</div>';
+          }).join("") +
+        '</div>' +
+        '<nav class="showcase__tabs-nav" aria-label="Service sections">' +
+          SHOWCASE_TABS.map(function(t, i) {
+            return '<div class="showcase__tab' + (i === 0 ? " is-active" : "") + '" data-index="' + i + '" role="tab" aria-selected="' + (i === 0) + '">' +
+              '<span class="showcase__tab-bar"></span>' +
+              '<span class="showcase__tab-name">' + t.label + '</span>' +
+              '<span class="showcase__tab-num">' + t.num + '</span>' +
+            '</div>';
+          }).join("") +
+        '</nav>' +
+      '</div>' +
+    '</div>';
+
+  var ui = el.querySelector(".showcase__ui");
+  var panels = el.querySelectorAll(".showcase__panel");
+  var tabs = el.querySelectorAll(".showcase__tab");
+  var startRect = null;
+  var isStartLocked = false;
+  var expandStartScrollY = 0;
+
+  function cardToRect(mr) {
+    return { top: mr.top, left: mr.left, width: mr.width, height: mr.height, radius: 6 };
+  }
+  function applyRect(r) {
+    film.style.top = r.top.toFixed(2) + "px";
+    film.style.left = r.left.toFixed(2) + "px";
+    film.style.width = r.width.toFixed(2) + "px";
+    film.style.height = r.height.toFixed(2) + "px";
+    film.style.borderRadius = r.radius.toFixed(2) + "px";
+  }
+
+  function loop() {
+    var vh = window.innerHeight;
+    var rect = el.getBoundingClientRect();
+    var scrolled = -rect.top;
+    var totalScroll = Math.max(el.offsetHeight - vh, 1);
+
+    if (rect.bottom <= 0) {
+      film.style.opacity = "0";
+      filmOverlay.style.opacity = "0";
+      ui.style.opacity = "0";
+      requestAnimationFrame(loop);
+      return;
+    }
+
+    var mr = missionMedia.getBoundingClientRect();
+    var mmVisible = mr.width > 0 && mr.height > 0 && mr.bottom > 0 && mr.top < vh;
+    var mmPending = mr.width > 0 && mr.height > 0 && mr.top >= vh;
+
+    if (mmVisible && scrolled <= 0) {
+      var mediaCenterY = mr.top + mr.height / 2;
+      if (mediaCenterY <= vh / 2 || isStartLocked) {
+        if (!isStartLocked) { expandStartScrollY = window.scrollY; }
+        isStartLocked = true;
+        startRect = cardToRect(mr);
+      } else {
+        startRect = cardToRect(mr);
+      }
+    }
+
+    if (!isStartLocked) {
+      if (mmPending) { startRect = null; expandStartScrollY = 0; }
+      if (startRect) { applyRect(startRect); }
+      film.style.opacity = startRect ? "1" : "0";
+      filmOverlay.style.opacity = "0";
+      ui.style.opacity = "0";
+      requestAnimationFrame(loop);
+      return;
+    }
+
+    var expandP = clamp((window.scrollY - expandStartScrollY) / vh, 0, 1);
+    var eased = easeOutCubic(expandP);
+    film.style.opacity = "1";
+
+    var sr = startRect || { top: vh * 0.21, left: window.innerWidth * 0.38, width: window.innerWidth * 0.58, height: vh * 0.58, radius: 6 };
+    applyRect({
+      top: lerp(sr.top, 0, eased),
+      left: lerp(sr.left, 0, eased),
+      width: lerp(sr.width, window.innerWidth, eased),
+      height: lerp(sr.height, vh, eased),
+      radius: lerp(sr.radius, 0, eased)
+    });
+    filmOverlay.style.opacity = (eased * 0.22).toFixed(3);
+
+    if (expandP < 1) { ui.style.opacity = "0"; requestAnimationFrame(loop); return; }
+
+    var progress = clamp(scrolled / totalScroll, 0, 1);
+    var uiP = clamp(progress / 0.08, 0, 1);
+    ui.style.opacity = easeInOutCubic(uiP).toFixed(3);
+
+    var TAB_START = 0.08;
+    var tabP = clamp((progress - TAB_START) / (1 - TAB_START), 0, 1);
+    var activeTab = clamp(Math.floor(tabP * SHOWCASE_TABS.length), 0, SHOWCASE_TABS.length - 1);
+
+    panels.forEach(function(p, i) {
+      var active = i === activeTab;
+      p.classList.toggle("is-active", active);
+      p.setAttribute("aria-hidden", String(!active));
+    });
+    tabs.forEach(function(t, i) {
+      var active = i === activeTab;
+      t.classList.toggle("is-active", active);
+      t.setAttribute("aria-selected", String(active));
+    });
+
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+})();
+
+
+  </script>
+
+
+</body></html>
